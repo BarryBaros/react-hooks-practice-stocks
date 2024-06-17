@@ -1,33 +1,34 @@
 import React from "react";
 
-function SearchBar() {
+function SearchBar({ sortBy, filterBy, onSortChange, onFilterChange }) {
   return (
     <div>
       <strong>Sort by:</strong>
       <label>
         <input
           type="radio"
-          value="Alphabetically"
+          value="alphabetically"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={sortBy === "alphabetically"}
+          onChange={onSortChange}
         />
         Alphabetically
       </label>
       <label>
         <input
           type="radio"
-          value="Price"
+          value="price"
           name="sort"
-          checked={null}
-          onChange={null}
+          checked={sortBy === "price"}
+          onChange={onSortChange}
         />
         Price
       </label>
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select value={filterBy} onChange={onFilterChange}>
+          <option value="">All</option>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
